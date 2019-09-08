@@ -1,6 +1,6 @@
 # [Kaggle SIIM-ACR Pneumothorax Segmentation](https://www.kaggle.com/c/siim-acr-pneumothorax-segmentation)
 
-# Top 4% solution (50/1475)
+# Top 4% solution (50/1475) by [AlexeyK](https://www.kaggle.com/akuritsyn), [Wayfarer](https://www.kaggle.com/joven1997), and [Kudaibergen R](https://www.kaggle.com/kudaibergenu)
 
 ### The goal of the competition was to develop a model to classify (and if present, segment) pneumothorax from a set of chest radiographic images. 
 
