@@ -4,7 +4,7 @@
 
 ### The goal of the competition was to develop a model to classify (and if present, segment) pneumothorax (colapsed lungs) from a set of chest radiographic images. 
 
-## The model is an ensemble of (1) Unet with EfficientNetB4 encoder on 512x512 images (in Keras) and (2) Unet with ResNet34 encoder on 1024x1024 images (Pytorch).
+## The model is an ensemble of 5 folds of (1) Unet with EfficientNetB4 encoder on 512x512 images (in Keras) and (2) Unet with ResNet34 encoder on 1024x1024 images (Pytorch).
 
 (1) Keras model was progressively trained from 256x256 to 512x512 size (due to limitations of Kaggle kernels upscaling to 1024x1024 was not feasible) 
 - 256x256, trained from zero for 70 epochs, batch_size=16 (no grad. accum.), init_lr=1e-3
