@@ -6,4 +6,4 @@
 
 ## The model is an ensemble of (1) Unet with EfficientNetB4 encoder on 512x512 images (in Keras) and (2) Unet with ResNet34 encoder on 1024x1024 images (Pytorch).
 - Keras model was progressively trained from 256x256 to 512x512 size (due to limitations of Kaggle kernels upscaling to 1024x1024 was not feasible) 
-- Pytorch model was progressively trained from 256x256 image size to 512x512 image size.
+- Pytorch model was progressively trained from the 256x256 image size to the 512x512 image size.
