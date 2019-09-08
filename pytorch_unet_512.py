@@ -1,4 +1,4 @@
-#Based on https://www.kaggle.com/rishabhiitbhu/unet-with-resnet34-encoder-pytorch
+#based on https://www.kaggle.com/rishabhiitbhu/unet-with-resnet34-encoder-pytorch
 
 #!/usr/bin/env python
 # coding: utf-8
@@ -8,7 +8,7 @@
 # What's down below?
 # 
 # * UNet with imagenet pretrained ResNet34 architecture
-# * Training on 1024x1024 sized images/masks with Standard Augmentations
+# * Training on 512x512 sized images/masks with Standard Augmentations
 # * MixedLoss (weighted sum of Focal loss and dice loss)
 # * Gradient Accumulution
 
@@ -200,8 +200,8 @@ def provider(
 
 sample_submission_path = 'sample_submission.csv'
 train_rle_path = 'train-rle.csv'
-data_folder = "1024/train"
-test_data_folder = "1024/test"
+data_folder = "512/train"
+test_data_folder = "512/test"
 
 
 # ### Dataloader sanity check
@@ -398,10 +398,8 @@ def compute_iou_batch(outputs, labels, classes=None):
 # In[12]:
 
 
-model = smp.Unet("resnet34", encoder_weights=None, activation=None)
-path="models/model_orig_aug0.pth"
-checkpoint=torch.load(path)
-model.load_state_dict(checkpoint["state_dict"])
+model = smp.Unet("resnet34", encoder_weights="imagenet", activation=None)
+
 
 # In[13]:
 
@@ -420,7 +418,7 @@ class Trainer(object):
         self.fold = 0
         self.total_folds = 5
         self.num_workers = 6
-        self.batch_size = {"train": 10, "val": 4}
+        self.batch_size = {"train": 16, "val": 4}
         self.accumulation_steps = 32 // self.batch_size['train']
         self.lr = 5e-4
         self.num_epochs = 40
@@ -441,7 +439,7 @@ class Trainer(object):
                 data_folder=data_folder,
                 df_path=train_rle_path,
                 phase=phase,
-                size=1024,
+                size=512,
                 mean=(0.485, 0.456, 0.406),
                 std=(0.229, 0.224, 0.225),
                 batch_size=self.batch_size[phase],
@@ -506,7 +504,7 @@ class Trainer(object):
             if val_loss < self.best_loss:
                 print("******** New optimal found, saving state ********")
                 state["best_loss"] = self.best_loss = val_loss
-                torch.save(state, "./1024_model_orig_aug{}.pth".format(self.fold))
+                torch.save(state, "./model_orig_aug{}.pth".format(self.fold))
             print()
 
 
@@ -618,6 +616,3 @@ plot(iou_scores, "IoU score")
             # encoded_pixels.append(r)
 # df['EncodedPixels'] = encoded_pixels
 # df.to_csv('submission_original_aug.csv', columns=['ImageId', 'EncodedPixels'], index=False)
-
-
-
