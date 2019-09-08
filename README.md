@@ -12,4 +12,4 @@
 - 512x512, initialize by previous 512x512 model weights, trained for 16 epochs, batch_size=4, grad_accum=4, init_lr=1e-4
 - 512x512, initialize by previous 512x512 model weights, trained for 16 epochs, batch_size=4, grad_accum=4, init_lr=3e-5
 
-(2) Pytorch model was progressively trained from the 256x256 image size to the 512x512 image size.
+(2) Pytorch model was progressively trained from the 512x512 image size to the 1024x1024 image size.
