@@ -21,7 +21,7 @@
     learning_rate = 5e-4
     optimizer = Adam()
     scheduler = ReduceLROnPlateau(optimizer, mode="min", patience=3, verbose=True)
-    loss = FocalLoss()+DiceLoss()
+    loss = FocalLoss() + DiceLoss()
     ```
 - 1024x1024, trained from the 512x512 weights
     ```
@@ -31,5 +31,5 @@
     learning_rate = 5e-4
     optimizer = Adam()
     scheduler = ReduceLROnPlateau(optimizer, mode="min", patience=3, verbose=True)
-    loss = FocalLoss()+DiceLoss()
+    loss = FocalLoss() + DiceLoss()
     ```
