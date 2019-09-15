@@ -13,6 +13,7 @@
 - 512x512, initialize by previous 512x512 model weights, trained for 16 epochs, batch_size=4, grad_accum=4, init_lr=3e-5
 
 (2) Pytorch model was progressively trained from the 512x512 image size to the 1024x1024 image size.
+    The data was divided to 5 folds, then the model was trained on the each fold.
 - 512x512, trained from "imagenet" weights
     ```
     num_epochs = 50
