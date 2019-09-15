@@ -23,7 +23,7 @@
     scheduler = ReduceLROnPlateau(optimizer, mode="min", patience=3, verbose=True)
     loss = FocalLoss()+DiceLoss()
     ```
-- 1024x1024, trained on the 512x512 weights
+- 1024x1024, trained from the 512x512 weights
     ```
     num_epochs = 50
     accumulation_steps = 3
