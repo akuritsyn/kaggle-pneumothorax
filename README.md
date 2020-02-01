@@ -13,7 +13,7 @@
 - 512x512, initialize by previous 512x512 model weights, trained for 16 epochs, batch_size=4, grad_accum=4, init_lr=3e-5
 
 (2) Pytorch model was progressively trained from the 512x512 image size to the 1024x1024 image size.
-- 512x512, trained from "imagenet" weights
+- 512x512, trained from the "imagenet" weights
     ```
     num_epochs = 50
     accumulation_steps = 2
@@ -21,7 +21,7 @@
     learning_rate = 5e-4
     optimizer = Adam()
     scheduler = ReduceLROnPlateau(optimizer, mode="min", patience=3, verbose=True)
-    loss = FocalLoss()+DiceLoss()
+    loss = FocalLoss() + DiceLoss()
     ```
 - 1024x1024, trained from the 512x512 weights
     ```
@@ -31,5 +31,5 @@
     learning_rate = 5e-4
     optimizer = Adam()
     scheduler = ReduceLROnPlateau(optimizer, mode="min", patience=3, verbose=True)
-    loss = FocalLoss()+DiceLoss()
+    loss = FocalLoss() + DiceLoss()
     ```
