@@ -2,6 +2,8 @@
 
 ## Top 4% solution (50/1475) by [AlexeyK](https://www.kaggle.com/akuritsyn), [Wayfarer](https://www.kaggle.com/joven1997), and [Kudaibergen R](https://www.kaggle.com/kudaibergenu)
 
+## Modular PyTorch implementation developed as a capstone project for Udacity ML Engineer Nanodegree is also available [here](https://github.com/akuritsyn/udacity-ml-nanodegree/tree/master/pneumothorax) with a report [here](https://github.com/akuritsyn/udacity-ml-nanodegree/blob/master/pneumothorax/capstone-final-report.pdf)
+
 ### The goal of the competition was to develop a model to classify (and if present, segment) pneumothorax (colapsed lungs) from a set of chest radiographic images. 
 
 ## The model is an ensemble of 5 folds of (1) Unet++ with EfficientNetB4 encoder on 512x512 images (in Keras) and (2) Unet with ResNet34 encoder on 1024x1024 images (Pytorch).
